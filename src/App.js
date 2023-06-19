@@ -5,6 +5,7 @@ import { LoginPage } from './pages/login/LoginPage';
 import { SignUpPage } from './pages/signup/SignUpPage';
 import { ExplorePage } from './pages/explore/ExplorePage';
 import { BookmarkPage } from './pages/bookmark/BookmarkPage';
+import { PostPage } from './pages/post/PostPage';
 import './App.css';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path = "/signup" element = {<SignUpPage />} />
         <Route path = "/explore" element = {<ExplorePage />} />
         <Route path = "/bookmark" element = {<BookmarkPage />} />
+        <Route path = "/post" element = {<PostPage />} />
       </Routes>
     </div>
   );
