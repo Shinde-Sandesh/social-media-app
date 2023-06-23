@@ -71,7 +71,7 @@ export function ExplorePage(){
                 <div>
                   <div className="flex flex-row flex-align-center flex-space-between">
                     <div className="flex flex-row">
-                      <p className="fw-semibold">{user.displayName}</p>
+                      <p className="fw-semibold">{user.fullName}</p>
                       <p className="grey-color pl-xs">
                         @{user.username} <span className="pl-xs">•</span>
                         <span className="pl-xs">{user.createdAt}</span>
