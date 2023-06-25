@@ -1,8 +1,22 @@
+import { Link, useParams } from "react-router-dom";
+
 import { LeftSideComponent } from "../../components/LeftSideComponent";
 import { Navbar } from "../../components/Navbar";
 import { RightSideComponent } from "../../components/RightSideComponent";
+import { PostCart } from "../../components/PostCard";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 export function PostPage(){
+
+  const { postId } = useParams();
+
+  function getProductDetails(products, postId) {
+    return products.find((product) => product.id === postId);
+  }
+
+  const product = getProductDetails(phonesDB.data, postId);
   return(
     <>
       <div className="container" style={{position: "relative;"}}>
@@ -10,7 +24,7 @@ export function PostPage(){
       <LeftSideComponent />
       <main className="mr-l h-full white-bg">
         <h3 className="pt-s ml-s">
-          <i className="bi bi-arrow-left-short pr-s"></i>Post
+          <Link><FontAwesomeIcon icon={faArrowLeft} /></Link> Post
         </h3>
         <div className="white-bg p-xs">
           <div className="flex flex-column nowrap p-xs">
