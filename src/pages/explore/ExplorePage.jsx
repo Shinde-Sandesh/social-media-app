@@ -5,6 +5,7 @@ import { LeftSideComponent } from "../../components/LeftSideComponent";
 import { Navbar } from "../../components/Navbar";
 import { RightSideComponent } from "../../components/RightSideComponent";
 import IconBookmark from '../../components/icons/BookMark';
+import { PostCart } from '../../components/PostCard';
 
 export function ExplorePage(){
 
@@ -65,35 +66,36 @@ export function ExplorePage(){
         <>
         {
           data.length > 0 && data.map((user) =>
-            <div className="white-bg mr-xxl p-xs mt-s">
-              <div className="flex flex-row nowrap p-xs">
-                <div className="grey-bg br-full width-xl height-xl p-xs mr-xs"></div>
-                <div>
-                  <div className="flex flex-row flex-align-center flex-space-between">
-                    <div className="flex flex-row">
-                      <p className="fw-semibold">{user.fullName}</p>
-                      <p className="grey-color pl-xs">
-                        @{user.username} <span className="pl-xs">•</span>
-                        <span className="pl-xs">{user.createdAt}</span>
-                      </p>
-                    </div>
-                    <p>∙∙∙</p>
-                  </div>
-                  <p className="pr-s pt-xs">{user.content}</p>
-                  <div className="flex flex-row nowrap flex-space-between pb-xs pt-m pr-s flex-align-center">
-                    <button onClick={incrementLikes} style={{backgroundColor: "transparent", border: "none"}}>
-                      <FontAwesomeIcon icon={faHeart} />
-                    </button>
-                    <span style={{display: !showLikes > 0 ? "block" : "none"}}>{likesCounter}</span>
-                    <FontAwesomeIcon icon={faCommentAlt} />
-                    <FontAwesomeIcon icon={faShareAlt} />
-                    {/* <FontAwesomeIcon icon={faBookmark} /> */}
-                    <IconBookmark />
-                    <i className="bi bi-chat-left"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
+            // <div className="white-bg mr-xxl p-xs mt-s">
+            //   <div className="flex flex-row nowrap p-xs">
+            //     <div className="grey-bg br-full width-xl height-xl p-xs mr-xs"></div>
+            //     <div>
+            //       <div className="flex flex-row flex-align-center flex-space-between">
+            //         <div className="flex flex-row">
+            //           <p className="fw-semibold">{user.fullName}</p>
+            //           <p className="grey-color pl-xs">
+            //             @{user.username} <span className="pl-xs">•</span>
+            //             <span className="pl-xs">{user.createdAt}</span>
+            //           </p>
+            //         </div>
+            //         <p>∙∙∙</p>
+            //       </div>
+            //       <p className="pr-s pt-xs">{user.content}</p>
+            //       <div className="flex flex-row nowrap flex-space-between pb-xs pt-m pr-s flex-align-center">
+            //         <button onClick={incrementLikes} style={{backgroundColor: "transparent", border: "none"}}>
+            //           <FontAwesomeIcon icon={faHeart} />
+            //         </button>
+            //         <span style={{display: !showLikes > 0 ? "block" : "none"}}>{likesCounter}</span>
+            //         <FontAwesomeIcon icon={faCommentAlt} />
+            //         <FontAwesomeIcon icon={faShareAlt} />
+            //         {/* <FontAwesomeIcon icon={faBookmark} /> */}
+            //         <IconBookmark />
+            //         <i className="bi bi-chat-left"></i>
+            //       </div>
+            //     </div>
+            //   </div>
+            // </div>
+            <PostCart {...user} noComments />
           )}
         </>
       </main>

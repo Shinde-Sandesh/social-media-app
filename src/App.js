@@ -19,7 +19,7 @@ function App() {
         <Route path = "/signup" element = {<SignUpPage />} />
         <Route path = "/explore" element = {<ExplorePage />} />
         <Route path = "/bookmark" element = {<BookmarkPage />} />
-        <Route path = "/post" element = {<PostPage />} />
+        <Route path = "/post/:postId" element = {<PostPage />} />
         <Route path = "/profile" element = {<ProfilePage />} />
       </Routes>
     </div>
