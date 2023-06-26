@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { LeftSideComponent } from "../../components/LeftSideComponent";
 import { Navbar } from "../../components/Navbar";
 import { RightSideComponent } from "../../components/RightSideComponent";
-import IconBookmark from '../../components/icons/BookMark';
+// import IconBookmark from '../../components/icons/BookMark';
 import { PostCart } from '../../components/PostCard';
 
 export function ExplorePage(){
