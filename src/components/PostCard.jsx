@@ -1,8 +1,11 @@
 import React from "react";
 
 import { useState } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faShareAlt, faHeart, faBookmark, faCommentAlt } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { faShareAlt, faBookmark as solidBookmark, faCommentAlt, faHeart  } from '@fortawesome/free-solid-svg-icons';
+import {faBookmark as regularBookmark} from '@fortawesome/free-regular-svg-icons';
+
 // import IconBookmark from '../../components/icons/BookMark';
 
 export function PostCart({
@@ -17,12 +20,23 @@ export function PostCart({
 })
 
 {
-  const[likesCounter, setLikesCounter] = useState(0)
+  const[likesCounter, setLikesCounter] = useState(likes.likeCount)
   const[showLikes, setShowLikes] = useState(true)
+  const [isLiked, setIsLiked] = useState(false);
+  const [isBookmarked, setIsBookmarked] = useState(false);
   
-  function incrementLikes(){
-    setLikesCounter(likesCounter + 1)
-    setShowLikes(false)
+  function incrementLikes() {
+    if (isLiked) {
+      setLikesCounter(likesCounter - 1);
+    } else {
+      setLikesCounter(likesCounter + 1);
+    }
+    setIsLiked(!isLiked);
+    setShowLikes(false);
+  }
+
+  function handleBookmark() {
+    setIsBookmarked(!isBookmarked);
   }
   return(
     <>
@@ -43,12 +57,19 @@ export function PostCart({
             <p className="pr-s pt-xs">{content}</p>
             <div className="flex flex-row nowrap flex-space-between pb-xs pt-m pr-s flex-align-center">
               <button onClick={incrementLikes} style={{backgroundColor: "transparent", border: "none"}}>
-                <FontAwesomeIcon icon={faHeart} />
+              <FontAwesomeIcon
+              icon={faHeart}
+              style={{ color: isLiked ? "red" : "inherit", fontSize: "1.2rem" }}
+            />
               </button>
               <span style={{display: !showLikes > 0 ? "block" : "none"}}>{likesCounter}</span>
               <FontAwesomeIcon icon={faCommentAlt} />
               <FontAwesomeIcon icon={faShareAlt} />
-              <FontAwesomeIcon icon={faBookmark} />
+              <FontAwesomeIcon
+            icon={isBookmarked ? solidBookmark : regularBookmark}
+            style={{ color: isBookmarked ? "black" : "inherit", fontSize: "1.2rem" }}
+            onClick={handleBookmark}
+          />
               {/* <IconBookmark /> */}
               <i className="bi bi-chat-left"></i>
             </div>

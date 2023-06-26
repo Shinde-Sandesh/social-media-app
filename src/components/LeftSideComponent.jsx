@@ -6,7 +6,7 @@ export function LeftSideComponent(){
         <div className="flex flex-column flex-space-between sidebar">
           <div>
             <div className="pt-s black-color fw-semibold">
-              <Link to = "/">
+              <Link to = "/home">
                 <i className="bi bi-house"></i> &nbsp;
                 <span className="fw-bold">Home</span>
               </Link>
