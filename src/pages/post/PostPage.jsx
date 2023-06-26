@@ -16,7 +16,7 @@ export function PostPage(){
     return products.find((product) => product.id === postId);
   }
 
-  const product = getProductDetails(phonesDB.data, postId);
+  // const product = getProductDetails(phonesDB.data, postId);
   return(
     <>
       <div className="container" style={{position: "relative;"}}>
