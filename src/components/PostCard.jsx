@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { faShareAlt, faBookmark as solidBookmark, faCommentAlt, faHeart  } from '@fortawesome/free-solid-svg-icons';
 import {faBookmark as regularBookmark} from '@fortawesome/free-regular-svg-icons';
+import { PostContext } from "../context/PostContext";
+
 
 // import IconBookmark from '../../components/icons/BookMark';
 
-export function PostCart({
+export function PostCard({
   _id,
   content,
   username,
@@ -24,6 +26,8 @@ export function PostCart({
   const[showLikes, setShowLikes] = useState(true)
   const [isLiked, setIsLiked] = useState(false);
   const [isBookmarked, setIsBookmarked] = useState(false);
+
+  const { handlePostUpdate } = useContext(PostContext)
   
   function incrementLikes() {
     if (isLiked) {
@@ -37,7 +41,9 @@ export function PostCart({
 
   function handleBookmark() {
     setIsBookmarked(!isBookmarked);
+    handlePostUpdate(_id, username, content)
   }
+
   return(
     <>
       <div className="white-bg mr-xxl p-xs mt-s">
@@ -66,10 +72,10 @@ export function PostCart({
               <FontAwesomeIcon icon={faCommentAlt} />
               <FontAwesomeIcon icon={faShareAlt} />
               <FontAwesomeIcon
-            icon={isBookmarked ? solidBookmark : regularBookmark}
-            style={{ color: isBookmarked ? "black" : "inherit", fontSize: "1.2rem" }}
-            onClick={handleBookmark}
-          />
+              icon={isBookmarked ? solidBookmark : regularBookmark}
+              style={{ color: isBookmarked ? "black" : "inherit", fontSize: "1.2rem" }}
+              onClick={handleBookmark}
+            />
               {/* <IconBookmark /> */}
               <i className="bi bi-chat-left"></i>
             </div>

@@ -5,7 +5,7 @@ import { LeftSideComponent } from "../../components/LeftSideComponent";
 import { Navbar } from "../../components/Navbar";
 import { RightSideComponent } from "../../components/RightSideComponent";
 // import IconBookmark from '../../components/icons/BookMark';
-import { PostCart } from '../../components/PostCard';
+import { PostCard, PostCart } from '../../components/PostCard';
 
 export function ExplorePage(){
 
@@ -95,7 +95,7 @@ export function ExplorePage(){
             //     </div>
             //   </div>
             // </div>
-            <PostCart {...user} noComments />
+            <PostCard {...user} noComments />
           )}
         </>
       </main>
