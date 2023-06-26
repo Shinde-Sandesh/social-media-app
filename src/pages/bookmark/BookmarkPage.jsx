@@ -1,8 +1,15 @@
+import React from "react";
+import { useContext } from "react";
 import { LeftSideComponent } from "../../components/LeftSideComponent";
 import { Navbar } from "../../components/Navbar";
 import { RightSideComponent } from "../../components/RightSideComponent";
+import { PostContext } from "../../context/PostContext";
 
 export function BookmarkPage(){
+
+  const {bookmarkPost, handlePostUpdate} = useContext(PostContext)
+
+  console.log({bookmarkPost})
   return(
     <>
       <div className="container">
@@ -10,7 +17,7 @@ export function BookmarkPage(){
       <LeftSideComponent />
       <main className="mt-xl">
         <h3 className="pt-s">Your Bookmarks</h3>
-        <div className="white-bg mr-xxl p-xs mt-s">
+        {/* <div className="white-bg mr-xxl p-xs mt-s">
           <div className="flex flex-row nowrap p-xs">
             <div className="grey-bg br-full width-xl height-xl p-xs mr-xs"></div>
             <div>
@@ -79,7 +86,26 @@ export function BookmarkPage(){
               </div>
             </div>
           </div>
+        </div> */}
+        <div>
+          {
+            bookmarkPost.length === 0 && <h2>No Post Bookmarked</h2>
+          }
+          {
+            bookmarkPost.map((post) => {
+              const { _id, username, content} = post;
+
+              return(
+                <React.Fragment key={_id}>
+                  <p>{_id}</p>
+                  <p>{username}</p>
+                  <p>{content}</p>
+                </React.Fragment>
+              )
+            })
+          }
         </div>
+
       </main>
       <RightSideComponent />
     </div>
