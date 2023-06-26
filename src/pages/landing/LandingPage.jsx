@@ -1,5 +1,7 @@
 // import '../pages/home/HomePage.css'
 
+import { Link } from "react-router-dom";
+
 export function LandingPage(){
   return(
     <>
@@ -18,8 +20,8 @@ export function LandingPage(){
           </h2>
         </div>
         <div>
-            <button className="primary-bg w-full p-s secondary-color border-none outline-none txt-s">Join Now</button>
-            <p className="primary-color txt-s txt-center mt-xs">Already have an account?</p>
+            <Link to = "/signup"><button className="primary-bg w-full p-s secondary-color border-none outline-none txt-s">Join Now</button></Link>
+            <Link to = "/login"><p className="primary-color txt-s txt-center mt-xs">Already have an account?</p></Link>
         </div>
       </div>
       <div className="grey-bg"style={{height: "70vh", width: "30rem"}}></div>

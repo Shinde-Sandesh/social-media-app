@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 export function LeftSideComponent(){
   return(
     <>
@@ -5,28 +6,28 @@ export function LeftSideComponent(){
         <div className="flex flex-column flex-space-between sidebar">
           <div>
             <div className="pt-s black-color fw-semibold">
-              <a href="/">
+              <Link to = "/home">
                 <i className="bi bi-house"></i> &nbsp;
                 <span className="fw-bold">Home</span>
-              </a>
+              </Link>
             </div>
             <div className="pt-s black-color fw-semibold">
-              <a href="../explore/explore.html">
+              <Link to = "/explore">
                 <i className="bi bi-rocket"></i> &nbsp;
                 <span>Explore</span>
-              </a>
+              </Link>
             </div>
             <div className="pt-s black-color fw-semibold">
-              <a href="../bookmarks/bookmark.html">
+              <Link to = "/bookmark">
                 <i className="bi bi-bookmark"></i> &nbsp;
                 <span>Bookmark</span>
-              </a>
+              </Link>
             </div>
             <div className="pt-s black-color fw-semibold">
-              <a href="../profile/profile.html">
+              <Link to = "/profile">
                 <i className="bi bi-person"></i> &nbsp;
                 <span>Profile</span>
-              </a>
+              </Link>
             </div>
             <button
               className="mt-m p-s primary-bg white-color border-none outline-transparent new-post-btn"
