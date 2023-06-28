@@ -7,6 +7,7 @@ import { ExplorePage } from './pages/explore/ExplorePage';
 import { BookmarkPage } from './pages/bookmark/BookmarkPage';
 import { PostPage } from './pages/post/PostPage';
 import { ProfilePage } from './pages/profile/ProfilePage';
+import Mockman from "mockman-js";
 import './App.css';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path = "/bookmark" element = {<BookmarkPage />} />
         <Route path = "/post/:postId" element = {<PostPage />} />
         <Route path = "/profile" element = {<ProfilePage />} />
+        <Route path = "/mockman" element = {<Mockman />} />
       </Routes>
     </div>
   );
