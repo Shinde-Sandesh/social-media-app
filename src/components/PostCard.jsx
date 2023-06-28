@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { faShareAlt, faBookmark as solidBookmark, faCommentAlt, faHeart  } from '@fortawesome/free-solid-svg-icons';
-import {faBookmark as regularBookmark} from '@fortawesome/free-regular-svg-icons';
+import { faShareAlt, faBookmark as solidBookmark, faCommentAlt, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faBookmark as regularBookmark } from '@fortawesome/free-regular-svg-icons';
+import { PostContext } from "../context/PostContext";
+
 
 // import IconBookmark from '../../components/icons/BookMark';
 
-export function PostCart({
+export function PostCard({
   _id,
   content,
   username,
@@ -17,14 +19,14 @@ export function PostCart({
   createdAt,
   comments,
   likes
-})
-
-{
-  const[likesCounter, setLikesCounter] = useState(likes.likeCount)
-  const[showLikes, setShowLikes] = useState(true)
+}) {
+  const [likesCounter, setLikesCounter] = useState(likes.likeCount)
+  const [showLikes, setShowLikes] = useState(true)
   const [isLiked, setIsLiked] = useState(false);
   const [isBookmarked, setIsBookmarked] = useState(false);
-  
+
+  const { handlePostUpdate } = useContext(PostContext)
+
   function incrementLikes() {
     if (isLiked) {
       setLikesCounter(likesCounter - 1);
@@ -37,8 +39,10 @@ export function PostCart({
 
   function handleBookmark() {
     setIsBookmarked(!isBookmarked);
+    handlePostUpdate({ _id, username, content, fullName, likes })
   }
-  return(
+
+  return (
     <>
       <div className="white-bg mr-xxl p-xs mt-s">
         <div className="flex flex-row nowrap p-xs">
@@ -56,20 +60,20 @@ export function PostCart({
             </div>
             <p className="pr-s pt-xs">{content}</p>
             <div className="flex flex-row nowrap flex-space-between pb-xs pt-m pr-s flex-align-center">
-              <button onClick={incrementLikes} style={{backgroundColor: "transparent", border: "none"}}>
-              <FontAwesomeIcon
-              icon={faHeart}
-              style={{ color: isLiked ? "red" : "inherit", fontSize: "1.2rem" }}
-            />
+              <button onClick={incrementLikes} style={{ backgroundColor: "transparent", border: "none" }}>
+                <FontAwesomeIcon
+                  icon={faHeart}
+                  style={{ color: isLiked ? "red" : "inherit", fontSize: "1.2rem" }}
+                />
               </button>
-              <span style={{display: !showLikes > 0 ? "block" : "none"}}>{likesCounter}</span>
+              <span style={{ display: !showLikes > 0 ? "block" : "none" }}>{likesCounter}</span>
               <FontAwesomeIcon icon={faCommentAlt} />
               <FontAwesomeIcon icon={faShareAlt} />
               <FontAwesomeIcon
-            icon={isBookmarked ? solidBookmark : regularBookmark}
-            style={{ color: isBookmarked ? "black" : "inherit", fontSize: "1.2rem" }}
-            onClick={handleBookmark}
-          />
+                icon={isBookmarked ? solidBookmark : regularBookmark}
+                style={{ color: isBookmarked ? "black" : "inherit", fontSize: "1.2rem" }}
+                onClick={handleBookmark}
+              />
               {/* <IconBookmark /> */}
               <i className="bi bi-chat-left"></i>
             </div>

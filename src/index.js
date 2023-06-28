@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom'
 import { makeServer } from "./server";
+import { PostProvider } from './context/PostContext';
 
 // Call make Server
 makeServer();
@@ -13,7 +14,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <PostProvider>
+        <App />
+      </PostProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
