@@ -29,9 +29,7 @@ export function LeftSideComponent(){
                 <span>Profile</span>
               </Link>
             </div>
-            <button
-              className="mt-m p-s primary-bg white-color border-none outline-transparent new-post-btn"
-            >
+            <button className="mt-m p-s primary-bg white-color border-none outline-transparent new-post-btn">
               Create New Post
             </button>
           </div>
