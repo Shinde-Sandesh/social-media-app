@@ -1,11 +1,11 @@
-import { useState, useContext } from "react"
+import { useState, useContext, useEffect } from "react"
 import { Link } from "react-router-dom"
 // import { RequiresAuth } from './components/RequiresAuth';
 import { AuthContext } from "../../context/AuthContext";
 
 export function LoginPage() {
 
-  const[email, setEmail] = useState("")
+  const[username, setUsername] = useState("")
   const[password, setPassword] = useState("")
   const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
 
@@ -13,11 +13,11 @@ export function LoginPage() {
     setIsLoggedIn(!isLoggedIn);
   };
 
-  const handleEmailValue = (event) => {
+  function handleEmailValue(event){
     setEmail(event.target.value)
     console.log(email)
   }
-  const handlePassword = (event) => {
+  function handlePassword(event){
     setPassword(event.target.value)
     console.log(password)
   }
