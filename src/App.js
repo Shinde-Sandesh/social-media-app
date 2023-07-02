@@ -9,19 +9,21 @@ import { PostPage } from './pages/post/PostPage';
 import { ProfilePage } from './pages/profile/ProfilePage';
 import Mockman from "mockman-js";
 import './App.css';
+import { RequiresAuth } from './components/RequiresAuth';
 
 function App() {
+
   return (
     <div className="App">
       <Routes>
         <Route path = "/" element = {<LandingPage />} />
-        <Route path = "/home" element = {<HomePage />} />
+        <Route path = "/home" element = {<RequiresAuth><HomePage /></RequiresAuth>} />
         <Route path = "/login" element = {<LoginPage />} />
         <Route path = "/signup" element = {<SignUpPage />} />
         <Route path = "/explore" element = {<ExplorePage />} />
-        <Route path = "/bookmark" element = {<BookmarkPage />} />
-        <Route path = "/post/:postId" element = {<PostPage />} />
-        <Route path = "/profile" element = {<ProfilePage />} />
+        <Route path = "/bookmark" element = {<RequiresAuth><BookmarkPage /></RequiresAuth>} />
+        <Route path = "/post/:postId" element = {<RequiresAuth><PostPage /></RequiresAuth>} />
+        <Route path = "/profile" element = {<RequiresAuth><ProfilePage /></RequiresAuth>} />
         <Route path = "/mockman" element = {<Mockman />} />
       </Routes>
     </div>
