@@ -14,8 +14,8 @@ export function LoginPage() {
   };
 
   function handleEmailValue(event){
-    setEmail(event.target.value)
-    console.log(email)
+    setUsername(event.target.value)
+    console.log(username)
   }
   function handlePassword(event){
     setPassword(event.target.value)
