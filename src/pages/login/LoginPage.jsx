@@ -22,6 +22,11 @@ export function LoginPage() {
     console.log(password)
   }
 
+  // useEffect(() => {
+  //   handleEmailValue()
+  //   handlePassword()
+  // }, [])
+
   return (
     <>
       <div className="flex flex-column flex-center h-full w-full">
@@ -33,7 +38,7 @@ export function LoginPage() {
             <h3 className="txt-center mb-m txt-l">Login</h3>
             <div className="flex flex-column">
               <label for="email">Email Address</label>
-              <input type="email" name="email" className="p-xs txt-s br-s mb-s " style={{ border: "1px solid grey" }} onChange={handleEmailValue} />
+              <input type="text" name="email" className="p-xs txt-s br-s mb-s " style={{ border: "1px solid grey" }} onChange={handleEmailValue} />
             </div>
             <div className="flex flex-column">
               <label for="password">Password</label>

@@ -21,7 +21,8 @@ function App() {
         <Route path = "/login" element = {<LoginPage />} />
         <Route path = "/signup" element = {<SignUpPage />} />
         <Route path = "/explore" element = {<ExplorePage />} />
-        <Route path = "/bookmark" element = {<RequiresAuth><BookmarkPage /></RequiresAuth>} />
+        <Route path = "/bookmark" element = {<BookmarkPage />} />
+        {/* <Route path = "/bookmark" element = {<RequiresAuth><BookmarkPage /></RequiresAuth>} /> */}
         <Route path = "/post/:postId" element = {<RequiresAuth><PostPage /></RequiresAuth>} />
         <Route path = "/profile" element = {<ProfilePage />} />
         {/* <Route path = "/profile" element = {<RequiresAuth><ProfilePage /></RequiresAuth>} /> */}
