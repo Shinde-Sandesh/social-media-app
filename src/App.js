@@ -23,7 +23,7 @@ function App() {
         <Route path = "/explore" element = {<ExplorePage />} />
         <Route path = "/bookmark" element = {<BookmarkPage />} />
         {/* <Route path = "/bookmark" element = {<RequiresAuth><BookmarkPage /></RequiresAuth>} /> */}
-        <Route path = "/post/:postId" element = {<RequiresAuth><PostPage /></RequiresAuth>} />
+        <Route path = "/post/:postId" element = {<PostPage />} />
         <Route path = "/profile" element = {<ProfilePage />} />
         {/* <Route path = "/profile" element = {<RequiresAuth><ProfilePage /></RequiresAuth>} /> */}
         <Route path = "/mockman" element = {<Mockman />} />
