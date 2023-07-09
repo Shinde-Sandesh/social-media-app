@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -14,7 +14,8 @@ export function PostCard({
   _id,
   content,
   username,
-  fullName,
+  firstName,
+  lastName,
   postImage,
   createdAt,
   comments,
@@ -39,7 +40,7 @@ export function PostCard({
 
   function handleBookmark() {
     setIsBookmarked(!isBookmarked);
-    handlePostUpdate({ _id, username, content, fullName, likes })
+    handlePostUpdate({ _id, username, content, firstName, lastName, likes })
   }
 
   return (
@@ -50,7 +51,7 @@ export function PostCard({
           <div>
             <div className="flex flex-row flex-align-center flex-space-between">
               <div className="flex flex-row">
-                <p className="fw-semibold">{fullName}</p>
+                <p className="fw-semibold">{firstName} {lastName}</p>
                 <p className="grey-color pl-xs">
                   @{username} <span className="pl-xs">•</span>
                   <span className="pl-xs">{createdAt}</span>
@@ -58,7 +59,9 @@ export function PostCard({
               </div>
               <p>∙∙∙</p>
             </div>
-            <p className="pr-s pt-xs">{content}</p>
+            <Link to = {`/post/${_id}`}>
+              <p className="pr-s pt-xs">{content}</p>
+            </Link>
             <div className="flex flex-row nowrap flex-space-between pb-xs pt-m pr-s flex-align-center">
               <button onClick={incrementLikes} style={{ backgroundColor: "transparent", border: "none" }}>
                 <FontAwesomeIcon

@@ -39,7 +39,7 @@ export function RightSideComponent(){
             <div className="grey-bg br-full width-xl height-xl"></div>
             <div className="flex flex-column">
               <a href="../profile/profile1.html">
-                <div className="fw-bold">{user.fullName}</div>
+                <div className="fw-bold">{user.firstName} {user.lastName}</div>
                 <div className="fw-light grey-color">@{user.username}</div>
               </a>
             </div>
