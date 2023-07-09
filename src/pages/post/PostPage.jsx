@@ -83,10 +83,6 @@ export function PostPage() {
               <p>{post.content}</p>
             } */}
             {/* <p>{post.username}</p> */}
-            {
-              post.length > 0 && post.map((user) =>
-                <PostCart {...user} noComments />
-              )}
           </div>
         </main>
         <RightSideComponent />
