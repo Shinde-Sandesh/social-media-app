@@ -7,7 +7,9 @@ export function LandingPage(){
     <>
       <div className="flex flex-row flex-center h-full w-full" style={{gap: "10rem"}}>
       <div className="flex flex-column flex-space-between " style={{height: "70vh", width: "25rem"}}>
-        <h2 className="fw-black txt-xl"><span className="primary-color">My</span> Website</h2>
+        <Link to = '/home'>
+          <h2 className="fw-black txt-xl"><span className="primary-color">My</span> Website</h2>
+        </Link>
         <div className="flex flex-column " style={{gap: "1.2rem;"}}>
           <h2 className="txt-xs">
             <span className="txt-l grey-color">FOLLOW</span> PEOPLE AROUND THE GLOBE
