@@ -32,7 +32,7 @@ export function BookmarkPage() {
                   <p>{content}</p> */}
                     <div className="white-bg mr-xxl p-xs mt-s">
                       <div className="flex flex-row nowrap p-xs">
-                        <div className="grey-bg br-full width-xl height-xl p-xs mr-xs"></div>
+                      <div className="grey-bg br-full width-xl height-xl p-s mr-xs"></div>
                         <div>
                           <div className="flex flex-row flex-align-center flex-space-between">
                             <div className="flex flex-row">

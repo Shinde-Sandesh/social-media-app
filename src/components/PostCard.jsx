@@ -47,7 +47,7 @@ export function PostCard({
     <>
       <div className="white-bg mr-xxl p-xs mt-s">
         <div className="flex flex-row nowrap p-xs">
-          <div className="grey-bg br-full width-xl height-xl p-xs mr-xs"></div>
+          <div className="grey-bg br-full width-xl height-xl p-s mr-xs"></div>
           <div>
             <div className="flex flex-row flex-align-center flex-space-between">
               <div className="flex flex-row">
@@ -59,7 +59,7 @@ export function PostCard({
               </div>
               <p>∙∙∙</p>
             </div>
-            <Link to = {`/post/${_id}`}>
+            <Link to={`/post/${_id}`}>
               <p className="pr-s pt-xs">{content}</p>
             </Link>
             <div className="flex flex-row nowrap flex-space-between pb-xs pt-m pr-s flex-align-center">

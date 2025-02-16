@@ -1,102 +1,63 @@
-import axios from 'axios'
-import { createContext, useState, useEffect } from "react";
-import { useNavigate } from "react-router";
+import axios from 'axios';
+import { createContext, useContext, useState } from 'react';
+import { useNavigate } from 'react-router';
 
-export const AuthContext = createContext({ isLoggedIn: false });
+const AuthContext = createContext();
 
-export function AuthProvider({ children }) {
-
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+const AuthProvider = ({ children }) => {
+  const localStorageToken = JSON.parse(localStorage.getItem('loginItems'));
+  const [token, setToken] = useState(localStorageToken?.token);
+  const [currUser, setCurrUser] = useState(localStorageToken?.user);
   const navigate = useNavigate();
 
-  const user = JSON.parse(localStorage.getItem("user"));
-  const { username } = user ?? { username: "" };
+  const LoginService = async ({ username, password }) =>
+    axios.post('/api/auth/login', { username, password });
 
-  const userLoginService = async (loginData) => {
-    // try {
-    //   const { username, password } = loginData
+  const SignUpService = async ({ username, password, firstName, lastName }) =>
+    axios.post('/api/auth/signup', { username, password, firstName, lastName });
 
-    //   const response = await fetch("/api/auth/login", {
-    //     method: "POST",
-    //     headers : {
-    //       "content-type" : "application/json",
-    //       "Accept" : 'application/json'
-    //     },
-    //     body : JSON.stringify(loginData)
-    //   })
-
-    //   response = await response.json()
-    //   localStorage.setItem("user-info", JSON.stringify(response))
-
-    // } catch (error) {
-
-    // }
+  const loginHandler = async (username, password) => {
     try {
-      const { username, password } = loginData;
-      const response = await axios.post("/api/auth/login", {
-        username,
-        password,
-      });
-      return response;
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
-  const userSignupService = async (loginData) => {
-    try {
-      const { username, password } = loginData
-
-      const response = await fetch("/api/auth/signup", {
-        method: "POST"
-      })
-
-    } catch (error) {
-
-    }
-  }
-
-  const loginUser = async (loginData) => {
-    try {
-      const response = await userLoginService(loginData);
-      if (response?.status === 200) {
-        localStorage.setItem("token", response?.data?.encodedToken);
-        localStorage.setItem("user", JSON.stringify(response?.data?.foundUser));
-        setIsLoggedIn(true);
-        navigate("/home");
-        alert("Login successfull");
+      const { data: { foundUser, encodedToken }, status } = await LoginService({ username, password });
+      if (status === 200 || status === 201) {
+        localStorage.setItem('loginItems', JSON.stringify({ token: encodedToken, user: foundUser }));
+        setCurrUser(foundUser);
+        setToken(encodedToken);
+        navigate('/home');
       }
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      console.error('Login error:', err);
     }
   };
 
-  const signupUser = async (signupData) => {
+  const signupHandler = async (username, password, firstName, lastName) => {
     try {
-      const response = await userSignupService(signupData);
-      if (response?.status === 201) {
-        console.log(response?.data?.createdUser);
-        localStorage.setItem("token", response?.data?.encodedToken);
-        localStorage.setItem(
-          "user",
-          JSON.stringify(response?.data?.createdUser)
-        );
-
-        setIsLoggedIn(true);
-        navigate("/feed");
-        alert("signup successfull");
+      const { data: { createdUser, encodedToken }, status } = await SignUpService({ username, password, firstName, lastName });
+      if (status === 200 || status === 201) {
+        localStorage.setItem('loginItems', JSON.stringify({ token: encodedToken, user: createdUser }));
+        setCurrUser(createdUser);
+        setToken(encodedToken);
+        navigate('/feed');
       }
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      console.error('Signup error:', err);
     }
   };
 
-  useEffect(() => {
-    if (username !== "sandeshshinde") {
-      setIsLoggedIn(false);
-    }
-  }, []);
+  const logoutHandler = () => {
+    localStorage.removeItem('loginItems');
+    setToken(null);
+    setCurrUser(null);
+    navigate('/login');
+  };
 
-  const value = { loginUser, signupUser, isLoggedIn, setIsLoggedIn };
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={{ token, currUser, loginHandler, signupHandler, logoutHandler }}>
+      {children}
+    </AuthContext.Provider>
+  );
 };
+
+const useAuth = () => useContext(AuthContext);
+
+export { useAuth, AuthProvider };

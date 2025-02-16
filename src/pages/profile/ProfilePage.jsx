@@ -3,6 +3,8 @@ import { Navbar } from "../../components/Navbar";
 import { RightSideComponent } from "../../components/RightSideComponent";
 
 export function ProfilePage(){
+  const user = JSON.parse(localStorage.getItem('loginItems'));
+
   return(
     <>
       <div className="container">
@@ -11,8 +13,8 @@ export function ProfilePage(){
       <main className="p-s">
         <div className="flex flex-column flex-center">
           <div className="lynx-gray-bg width-7 height-7 br-full"></div>
-          <h3 className="pt-s">Tanay Pratap</h3>
-          <p className="grey-color txt-s">@tanaypratap</p>
+          <h3 className="pt-s">{user['user']['firstName']} {user['user']['lastName']}</h3>
+          <p className="grey-color txt-s">@{user['user']['username']}</p>
           <button className="border lynx-white-bg p-xs m-xs fw-semibold width-8">
             Edit Profile
           </button>
@@ -44,9 +46,9 @@ export function ProfilePage(){
             <div>
               <div className="flex flex-row flex-align-center flex-space-between">
                 <div className="flex flex-row">
-                  <p className="fw-semibold">Tanay Pratap</p>
+                  <p className="fw-semibold">{user['user']['firstName']} {user['user']['lastName']}</p>
                   <p className="grey-color pl-xs">
-                    @tanaypratap <span className="pl-xs">•</span>
+                    @{user['user']['username']} <span className="pl-xs">•</span>
                     <span className="pl-xs">1 min</span>
                   </p>
                 </div>

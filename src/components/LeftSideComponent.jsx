@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom'
+
 export function LeftSideComponent(){
+  const user = JSON.parse(localStorage.getItem('loginItems'));
+
   return(
     <>
       <aside className="p-s pt-xl pl-xxl ml-m sidebar1">
@@ -37,8 +40,8 @@ export function LeftSideComponent(){
             <div className="flex">
               <div className="grey-bg br-full width-xl height-xl"></div>
               <div className="flex flex-column ml-xs">
-                <div className="fw-bold">Tanay Pratap</div>
-                <div className="fw-light grey-color">@tanaypratap</div>
+                <div className="fw-bold">{user['user']['firstName']} {user['user']['lastName']}</div>
+                <div className="fw-light grey-color">@{user['user']['username']}</div>
               </div>
             </div>
             <div className="grey-color fw-bold">...</div>

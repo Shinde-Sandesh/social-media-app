@@ -16,53 +16,36 @@ export function PostPage() {
   const [post, setPost] = useState([])
   const { postId } = useParams();
 
-  function getProductDetails(products, postId) {
-    return products.find((product) => product.id === postId);
-  }
+  const fetchSinglePost = async() => {
+    try {
+      const response = await getSinglePostService(postId)
 
-  // const product = getProductDetails(phonesDB.data, postId);
+      if (response.status === 200) {
+        const data = await response.json();
+        setPost(response.data)
+      }
+    } catch (error) {
+      console.error('Error during fetch:', error);
+    }
+  }
 
   const getSinglePostService = async (postId) => {
     try {
       const response = await fetch(`/api/posts/${postId}`);
-      // console.log(response)
+      console.log(response)
       return response;
     } catch (error) {
       console.error();
     }
   }
 
-  // const fetchPost = async () => {
-  //   try {
-  //     const response = await axios.get(`/api/posts/:${postId}`)
-  //     console.log("response",response)
-  //     if (response.status === 200) {
-  //       const data = await response.json()
-  //       console.log(data)
-  //       setSinglePost(response?.data?.post);
-  //       console.log(singlePost)
-  //       // setData(data.posts)
-  //     } else {
-  //       console.error('Failed to fetch post:', response.status);
-  //     }
-  //   } catch (error) {
-  //     console.error('Error during fetch:', error);
-  //   }
-  // }
-
-  const fetchSinglePost = async() => {
-    try {
-      const response = await getSinglePostService(postId)
-
-      if (response.status === 200) {
-        const data = await response.json()
-        setPost(response.data)
-        console.log(data)
-      }
-    } catch (error) {
-      console.error('Error during fetch:', error);
-    }
+  function getProductDetails(post, postId) {
+    return post.find((postToFetch) => postToFetch._id === postId);
   }
+
+  const postDetail = getProductDetails(post, postId);
+
+  console.log("CHECKRESPONSE", postDetail)
 
   useEffect(() => {
     fetchSinglePost();

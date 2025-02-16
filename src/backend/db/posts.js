@@ -30,8 +30,10 @@ export const posts = [
         comment: "Wow",
       },
     ],
-    fullname: "Aritra Chowdhury",
-    username: "aritrachowdhury",
+    fullname: "Alex Johnson",
+    username: "alexj",
+    email: "alex.johnson@example.com",
+    "bio": "Tech enthusiast and blogger",
     postImage: ["https://source.unsplash.com/random/1100x900/?fruit"],
     createdAt: "2023-06-01",
     updatedAt: formatDate(),
@@ -53,8 +55,10 @@ export const posts = [
         comment: "Lightweight Buddy",
       },
     ],
-    fullname: "Subham Soni",
-    username: "subhamsoni",
+    fullname: "Mia Patel",
+    username: "miap",
+    "email": "mia.patel@example.com",
+    "bio": "Lover of coffee and coding",
     postImage: ["https://source.unsplash.com/random/1100x900/?gym"],
     createdAt: "2023-06-02",
     updatedAt: formatDate(),
@@ -95,4 +99,21 @@ export const posts = [
     createdAt: "2023-06-04",
     updatedAt: formatDate(),
   },
-];
+  {
+    _id: uuid(),
+    content: "Hello everyone! I'm exploring this platform as a guest user.",
+    likes: {
+      likeCount: 5,
+      likedBy: [],
+      dislikedBy: []
+    },
+    comments: [],
+    fullname: "Guest User",
+    username: "guestuser",
+    email: "guest@example.com",
+    postImage: "https://source.unsplash.com/random/200x200/?person",
+    createdAt: "2023-06-01",
+    updatedAt: formatDate(),
+  }
+
+]

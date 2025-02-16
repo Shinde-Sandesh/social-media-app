@@ -12,7 +12,6 @@ import { AuthProvider, AuthContext } from "./context/AuthContext";
 makeServer();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-export { AuthContext };
 
 root.render(
   <React.StrictMode>

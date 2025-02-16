@@ -12,15 +12,15 @@ export function SignUpPage() {
           <h3 class="txt-center mb-s txt-l">Signup</h3>
           <div class="flex flex-column">
             <label for="name" class="txt-s">Full Name</label>
-            <input type="text" name="name" class="p-xs txt-s lynx-white-color br-s mb-s " style={{ border: "1px solid grey" }} placeholder="Tanay Pratap" />
+            <input type="text" name="name" class="p-xs txt-s lynx-white-color br-s mb-s " style={{ border: "1px solid grey" }} placeholder="Enter Full Name" />
           </div>
           <div class="flex flex-column">
             <label for="username">Username</label>
-            <input type="text" name="username" class="p-xs txt-s lynx-white-color br-s mb-s " style={{ border: "1px solid grey" }} placeholder="tanaypratap" />
+            <input type="text" name="username" class="p-xs txt-s lynx-white-color br-s mb-s " style={{ border: "1px solid grey" }} placeholder="Enter Username" />
           </div>
           <div class="flex flex-column">
             <label for="email">Email Address</label>
-            <input type="text" name="email" class="p-xs txt-s lynx-white-color br-s mb-s " style={{ border: "1px solid grey" }} placeholder="tanay@neog.camp" />
+            <input type="text" name="email" class="p-xs txt-s lynx-white-color br-s mb-s " style={{ border: "1px solid grey" }} placeholder="Enter Email address" />
           </div>
           <div class="flex flex-column">
             <label for="password">Password</label>

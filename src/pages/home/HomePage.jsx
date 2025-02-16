@@ -3,8 +3,13 @@ import "./HomePage.css"
 import { LeftSideComponent } from '../../components/LeftSideComponent'
 import { RightSideComponent } from '../../components/RightSideComponent'
 import { Navbar } from '../../components/Navbar'
+import { use } from 'react'
 
 export function HomePage() {
+
+  const user = JSON.parse(localStorage.getItem('loginItems'));
+  console.log("CHECKUSER", (user['user']['firstName']));
+
   return (
     <div className="container">
       <Navbar />
@@ -36,9 +41,9 @@ export function HomePage() {
             <div>
               <div className="flex flex-row flex-align-center flex-space-between">
                 <div className="flex flex-row">
-                  <p className="fw-semibold">Tanay Pratap</p>
+                  <p className="fw-semibold">{user['user']['firstName']} {user['user']['lastName']}</p>
                   <p className="grey-color pl-xs">
-                    @tanaypratap <span className="pl-xs">•</span>
+                  @{user['user']['username']} <span className="pl-xs">•</span>
                     <span className="pl-xs">1 min</span>
                   </p>
                 </div>
@@ -65,7 +70,7 @@ export function HomePage() {
             </div>
           </div>
         </div>
-        <div className="white-bg mr-xxl p-xs mt-s">
+        {/* <div className="white-bg mr-xxl p-xs mt-s">
           <div className="flex flex-row nowrap p-xs">
             <div className="grey-bg br-full width-xl height-xl p-xs mr-xs" style={{aspectRatio : 1}}></div>
             <div>
@@ -99,7 +104,7 @@ export function HomePage() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </main>
       <RightSideComponent />
     </div>
