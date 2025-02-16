@@ -7,21 +7,21 @@ import { formatDate } from "../utils/authUtils";
  */
 
 export const users = [
-  // {
-  //   _id: uuid(),
-  //   firstName: "Guest",
-  //   lastName: "User",
-  //   username: "guestuser",
-  //   password: "guest123",
-  //   createdAt: formatDate(),
-  //   updatedAt: formatDate(),
-  //   profileAvatar: "https://picsum.photos/200/200",
-  //   bio: "Exploring the platform as a guest user. Here to experience the magic without signing up!",
-  //   website: "https://example.com",
-  // followers: [],
-  // following: [],
-  //   background: "https://res.cloudinary.com/dazdakg1z/image/upload/v1684863377/samples/people/nature.jpg",
-  // },
+  {
+    _id: uuid(),
+    firstName: "Guest",
+    lastName: "User",
+    username: "guestuser",
+    password: "guest123",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+    profileAvatar: "https://picsum.photos/200/200",
+    bio: "Exploring the platform as a guest user. Here to experience the magic without signing up!",
+    website: "https://example.com",
+  followers: [],
+  following: [],
+    background: "https://res.cloudinary.com/dazdakg1z/image/upload/v1684863377/samples/people/nature.jpg",
+  },
   {
     _id: uuid(),
     firstName: "Alex",
