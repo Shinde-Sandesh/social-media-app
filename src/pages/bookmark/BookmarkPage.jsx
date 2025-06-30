@@ -1,6 +1,6 @@
 import React from "react";
 import { useContext } from "react";
-import { LeftSideComponent } from "../../components/LeftSideComponent";
+import { LeftSideComponent } from "../../components/left-sidebar/LeftSideComponent";
 import { Navbar } from "../../components/Navbar";
 import { RightSideComponent } from "../../components/RightSideComponent";
 import { PostContext } from "../../context/PostContext";

@@ -1,4 +1,4 @@
-import { LeftSideComponent } from "../../components/LeftSideComponent";
+import { LeftSideComponent } from "../../components/left-sidebar/LeftSideComponent";
 import { Navbar } from "../../components/Navbar";
 import { RightSideComponent } from "../../components/RightSideComponent";
 
@@ -12,21 +12,19 @@ export function ProfilePage(){
       <LeftSideComponent />
       <main className="p-s">
         <div className="flex flex-column flex-center">
-          <div className="lynx-gray-bg width-7 height-7 br-full"></div>
+          <div className="lynx-gray-bg width-7 height-7 br-full">
+            <img src={user['user']['profileAvatar']} alt='img'/>
+          </div>
           <h3 className="pt-s">{user['user']['firstName']} {user['user']['lastName']}</h3>
           <p className="grey-color txt-s">@{user['user']['username']}</p>
           <button className="border lynx-white-bg p-xs m-xs fw-semibold width-8">
             Edit Profile
           </button>
-          <p className="m-xs p-xs">
-            Senior Software Engineer @Microsoft | Creator of India’s biggest
-            programming community | Tweets about JavaScript, ReactJS, Career and
-            Startups
-          </p>
-          <p className="primary-color">tanaypratap.com</p>
+          <p className="m-xs p-xs">{user['user']['bio']}</p>
+          <p className="primary-color">{user['user']['website']}</p>
           <div className="white-bg p-xs m-xs flex flex-row flex-space-evenly">
             <div className="flex flex-column flex-center m-s ml-m mr-m">
-              <p className="fw-black">0</p>
+              <p className="fw-black">{user['user']['following'].length}</p>
               <p className="fw-semibold">Following</p>
             </div>
             <div className="flex flex-column flex-center m-s ml-m mr-m">
@@ -34,7 +32,7 @@ export function ProfilePage(){
               <p className="fw-semibold">Posts</p>
             </div>
             <div className="flex flex-column flex-center m-s ml-m mr-m">
-              <p className="fw-black">37.3K</p>
+              <p className="fw-black">{user['user']['followers'].length}</p>
               <p className="fw-semibold">Followers</p>
             </div>
           </div>
@@ -42,7 +40,9 @@ export function ProfilePage(){
         <h3 className="m-s">Your Posts</h3>
         <div className="white-bg">
           <div className="flex flex-row nowrap p-xs">
-            <div className="grey-bg br-full width-xl height-xl p-xs mr-xs"></div>
+            <div className="grey-bg br-full width-xl height-xl p-xs mr-xs">
+              <img src={user['user']['profileAvatar']} alt='img'/>
+            </div>
             <div>
               <div className="flex flex-row flex-align-center flex-space-between">
                 <div className="flex flex-row">

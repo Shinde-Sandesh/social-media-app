@@ -1,11 +1,11 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShareAlt, faHeart, faBookmark, faCommentAlt } from '@fortawesome/free-solid-svg-icons'
 import { useState, useEffect } from "react";
-import { LeftSideComponent } from "../../components/LeftSideComponent";
+import { LeftSideComponent } from "../../components/left-sidebar/LeftSideComponent";
 import { Navbar } from "../../components/Navbar";
 import { RightSideComponent } from "../../components/RightSideComponent";
 // import IconBookmark from '../../components/icons/BookMark';
-import { PostCard, PostCart } from '../../components/PostCard';
+import { PostCard, PostCart } from '../../components/post-card-component/PostCard';
 
 export function ExplorePage() {
 
@@ -66,7 +66,7 @@ export function ExplorePage() {
           <>
             {
               data.length > 0 && data.map((user) =>
-                <PostCard {...user} noComments />
+                <PostCard key={user._id} {...user} noComments />
               )}
           </>
         </main>

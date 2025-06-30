@@ -1,6 +1,6 @@
 import React from 'react'
 import "./HomePage.css"
-import { LeftSideComponent } from '../../components/LeftSideComponent'
+import { LeftSideComponent } from '../../components/left-sidebar/LeftSideComponent'
 import { RightSideComponent } from '../../components/RightSideComponent'
 import { Navbar } from '../../components/Navbar'
 import { use } from 'react'
@@ -37,7 +37,9 @@ export function HomePage() {
         </div>
         <div className="white-bg mr-xxl p-xs mt-s">
           <div className="flex flex-row nowrap p-xs">
-            <div className="grey-bg br-full width-xl height-xl p-xs mr-xs" style={{aspectRatio : 1}}></div>
+            <div className="grey-bg br-full width-xl height-xl p-xs mr-xs" style={{aspectRatio : 1}}>
+              <img src={user['user']['profileAvatar']} alt='img'/>
+            </div>
             <div>
               <div className="flex flex-row flex-align-center flex-space-between">
                 <div className="flex flex-row">

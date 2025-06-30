@@ -5,9 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { faShareAlt, faBookmark as solidBookmark, faCommentAlt, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faBookmark as regularBookmark } from '@fortawesome/free-regular-svg-icons';
-import { PostContext } from "../context/PostContext";
-
-
+import { PostContext } from "../../context/PostContext";
+import './PostCard.css'
 // import IconBookmark from '../../components/icons/BookMark';
 
 export function PostCard({
@@ -40,14 +39,16 @@ export function PostCard({
 
   function handleBookmark() {
     setIsBookmarked(!isBookmarked);
-    handlePostUpdate({ _id, username, content, firstName, lastName, likes })
+    handlePostUpdate({ _id, username, content, firstName, lastName, likes, postImage })
   }
 
   return (
     <>
       <div className="white-bg mr-xxl p-xs mt-s">
         <div className="flex flex-row nowrap p-xs">
-          <div className="grey-bg br-full width-xl height-xl p-s mr-xs"></div>
+          <div className="grey-bg br-full width-xl height-xl p-s mr-xs">
+            <img src={postImage} alt='img'/>
+          </div>
           <div>
             <div className="flex flex-row flex-align-center flex-space-between">
               <div className="flex flex-row">
@@ -69,7 +70,7 @@ export function PostCard({
                   style={{ color: isLiked ? "red" : "inherit", fontSize: "1.2rem" }}
                 />
               </button>
-              <span style={{ display: !showLikes > 0 ? "block" : "none" }}>{likesCounter}</span>
+              <span style={{ display: !showLikes && (likesCounter > 0) ? "block" : "none" }} className="likes-count">{likesCounter}</span>
               <FontAwesomeIcon icon={faCommentAlt} />
               <FontAwesomeIcon icon={faShareAlt} />
               <FontAwesomeIcon

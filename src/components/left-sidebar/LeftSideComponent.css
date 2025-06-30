@@ -1,0 +1,11 @@
+.active-link {
+  color: var(--primary-color); /* Blue or any highlight color */
+  font-weight: bold;
+  /* background-color: var(--primary-color); */
+  /* border-radius: 15px;
+  display: block; */
+}
+
+.margin-added {
+    margin-bottom: 10px;
+}

@@ -6,8 +6,8 @@ import { useAuth } from "../../context/AuthContext";
 
 export function LoginPage() {
 
-  const[username, setUsername] = useState("")
-  const[password, setPassword] = useState("")
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
   // const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
   const { loginHandler, token } = useAuth();
 
@@ -31,11 +31,11 @@ export function LoginPage() {
     loginHandler(loginForm.username, loginForm.password);
   };
 
-  function handleusernameValue(event){
+  function handleusernameValue(event) {
     setUsername(event.target.value)
     console.log(username)
   }
-  function handlePassword(event){
+  function handlePassword(event) {
     setPassword(event.target.value)
     console.log(password)
   }
@@ -56,30 +56,30 @@ export function LoginPage() {
             <h3 className="txt-center mb-m txt-l">Login</h3>
             <div className="flex flex-column">
               <label for="username">username Address</label>
-              <input 
+              <input
                 placeholder='Enter E-mail Address'
                 type='text'
                 required={true}
-                value={loginForm.username} 
-                className="p-xs txt-s br-s mb-s " 
-                style={{ border: "1px solid grey" }} 
+                value={loginForm.username}
+                className="p-xs txt-s br-s mb-s "
+                style={{ border: "1px solid grey" }}
                 onChange={(e) =>
-                    setLoginForm({ ...loginForm, username: e.target.value })
-                } 
+                  setLoginForm({ ...loginForm, username: e.target.value })
+                }
               />
             </div>
             <div className="flex flex-column">
               <label for="password">Password</label>
-              <input 
+              <input
                 placeholder='Enter Password'
                 value={loginForm.password}
                 required={true}
-                type='password' 
+                type='password'
                 className="p-xs txt-s br-s flex items-center"
-                style={{ border: "1px solid grey" }} 
+                style={{ border: "1px solid grey" }}
                 onChange={(e) =>
-                    setLoginForm({ ...loginForm, password: e.target.value })
-                } 
+                  setLoginForm({ ...loginForm, password: e.target.value })
+                }
               />
             </div>
             <div className="flex flex-align-center flex-space-between mt-m mb-m">
@@ -89,8 +89,8 @@ export function LoginPage() {
               </div>
               <a href="#" className="action-color">Forgot your password?</a>
             </div>
-            <button 
-            className="w-full primary-bg white-color p-s outline-transparent border-none pt-xs pb-xs txt-s" 
+            <button
+              className="w-full primary-bg white-color p-s outline-transparent border-none pt-xs pb-xs txt-s"
             // onClick={handleLogin}
             >
               {/* {isLoggedIn ? "Logout" : "Login"} */}
@@ -98,16 +98,16 @@ export function LoginPage() {
             </button>
             {/* <Link to="/signup" className="txt-center w-full mt-m" style={{ display: "block" }}>Login as Guest User</Link> */}
             <button onClick={() => setLoginForm({
-                username: fixedLoginForm.username,
-                password: fixedLoginForm.password,
-              })
-              }
-                type='submit'
-                className='link-btn'
-                style={{ marginLeft: '10px' }}
-              >
-                Login As a Guest
-              </button>
+              username: fixedLoginForm.username,
+              password: fixedLoginForm.password,
+            })
+            }
+              type='submit'
+              className='link-btn'
+              style={{ marginLeft: '10px' }}
+            >
+              Login As a Guest
+            </button>
             <Link to="/signup" className="txt-center w-full mt-m" style={{ display: "block" }}>Create New Account</Link>
           </div>
         </form>
